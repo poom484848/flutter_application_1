@@ -21,13 +21,15 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+ 
 // ตัวอย่างวิดเจ็ตที่ส่งคืนโดย property 'home' ของ MaterialApp
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
  
   @override
   Widget build(BuildContext context) {
-    return Scaffold( // ให้โครงสร้างแอปพื้นฐาน
+    return Scaffold(
+      // ให้โครงสร้างแอปพื้นฐาน
       appBar: AppBar(
         title: const Text('Home Page'),
         backgroundColor: Colors.blue, // ปรับแต่งสี AppBar
@@ -35,24 +37,26 @@ class MyHomePage extends StatelessWidget {
  
       body: Center(
         child: Container(
-        padding: EdgeInsets.all(50.0),
+          padding: EdgeInsets.all(50.0),
           width: 300.0,
           height: 200.0,
           decoration: BoxDecoration(
             color: Colors.amber,
-            borderRadius: BorderRadius.all(Radius.circular(8.0))
-          ),
-          child: const Text('POOM',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 40.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            borderRadius: BorderRadius.horizontal(
+              right: Radius.circular(19.0),
+              left: Radius.circular(19.0),
             ),
-          )
-        )
+          ),
+          child: Center(
+            child: Image.asset(
+              'assets/images/hq720.jpg',
+              width: 150,
+              // height: 100, // สามารถละเว้นมิติหนึ่งเพื่อรักษาอัตราส่วนภาพ
+              fit: BoxFit.contain, // ปรับขนาดให้พอดีภายในกล่องโดยไม่ตัดภาพ
+            ),
+          ),
+        ),
       ),
- 
  
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -64,3 +68,4 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+ 
